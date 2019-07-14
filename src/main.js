@@ -25,7 +25,7 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
-  store,
+  store, //this make the store accessible in every component of the app
   render: function(h) {
     return h(App);
   }
