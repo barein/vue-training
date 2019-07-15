@@ -9,12 +9,15 @@ export default new Vuex.Store({
       id: 1,
       name: "nicolas"
     },
-    events: [
-    {id: 1, name: 'event 1'},
-    {id: 2, name: 'event 2'},
-    {id: 3, name: 'event 3'},
-    ],
-    categories: ['nature', 'animal welfare', 'housing', 'education', 'food', 'community'],
+    count: 0,
+    categories: [
+      "nature",
+      "animal welfare",
+      "housing",
+      "education",
+      "food",
+      "community"
+    ]
   },
   getters: {
     catLength(state) {
@@ -24,6 +27,17 @@ export default new Vuex.Store({
       return state.events.find(event => event.id === id);
     }
   },
-  mutations: {},
-  actions: {}
+  mutations: {
+    INCREMENT_COUNT(state, value) {
+      // console.log(value)
+      state.count += value;
+    }
+  },
+  actions: {
+    updateCount({ state, commit }, incrementBy) {
+      if (state.user) {
+        commit("INCREMENT_COUNT", incrementBy);
+      }
+    }
+  }
 });

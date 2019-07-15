@@ -24,8 +24,8 @@ requireComponent.keys().forEach(fileName => {
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store, //this make the store accessible in every component of the app
+  router, //this makes the router accessible in every component of the app
+  store, //this makes the store accessible in every component of the app
   render: function(h) {
     return h(App);
   }
