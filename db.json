@@ -44,6 +44,118 @@
       "date": "2019-02-02T23:27:00.000Z",
       "time": "1:00",
       "attendees": []
+    },
+    {
+      "category": "animal welfare",
+      "organizer": {
+        "id": 1,
+        "name": "nicolas"
+      },
+      "title": "caress turtles",
+      "description": "",
+      "location": "beach",
+      "date": "2019-07-10T20:49:00.000Z",
+      "time": "10:00",
+      "attendees": [],
+      "id": 8419989
+    },
+    {
+      "category": "nature",
+      "organizer": {
+        "id": 1,
+        "name": "nicolas"
+      },
+      "title": "tree huging",
+      "description": "",
+      "location": "forest",
+      "date": "2019-07-11T20:53:00.000Z",
+      "time": "12:00",
+      "attendees": [],
+      "id": 8419990
+    },
+    {
+      "category": "nature",
+      "organizer": {
+        "id": 1,
+        "name": "nicolas"
+      },
+      "title": "tree huging",
+      "description": "",
+      "location": "forest",
+      "date": "2019-07-11T20:53:00.000Z",
+      "time": "12:00",
+      "attendees": [],
+      "id": 8419991
+    },
+    {
+      "category": "food",
+      "organizer": {
+        "id": 1,
+        "name": "nicolas"
+      },
+      "title": "jkh",
+      "description": "",
+      "location": "",
+      "date": "2019-07-18T20:54:00.000Z",
+      "time": "18:00",
+      "attendees": [],
+      "id": 8419992
+    },
+    {
+      "category": "housing",
+      "organizer": {
+        "id": 1,
+        "name": "nicolas"
+      },
+      "title": "hjkmmmm",
+      "description": "",
+      "location": "",
+      "date": "2019-07-02T21:01:00.000Z",
+      "time": "",
+      "attendees": [],
+      "id": 8419993
+    },
+    {
+      "id": 8419994,
+      "category": "housing",
+      "organizer": {
+        "id": 1,
+        "name": "nicolas"
+      },
+      "title": "mpopo",
+      "description": "",
+      "location": "mpopo",
+      "date": "2019-07-10T21:03:00.000Z",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 3311311,
+      "category": "food",
+      "organizer": {
+        "id": 1,
+        "name": "nicolas"
+      },
+      "title": "miam",
+      "description": "",
+      "location": "miam",
+      "date": "2019-07-02T21:04:00.000Z",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 1628466,
+      "category": "housing",
+      "organizer": {
+        "id": 1,
+        "name": "nicolas"
+      },
+      "title": "poiuyt",
+      "description": "",
+      "location": "",
+      "date": "2019-07-02T21:05:00.000Z",
+      "time": "19:00",
+      "attendees": []
     }
   ]
 }

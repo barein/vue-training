@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import EventService from "@/services/EventService.js";
 
 Vue.use(Vuex);
 
@@ -9,7 +10,7 @@ export default new Vuex.Store({
       id: 1,
       name: "nicolas"
     },
-    count: 0,
+    events: [],
     categories: [
       "nature",
       "animal welfare",
@@ -28,16 +29,15 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    INCREMENT_COUNT(state, value) {
-      // console.log(value)
-      state.count += value;
+    ADD_EVENT(state, value) {
+      state.events.push(value);
     }
   },
   actions: {
-    updateCount({ state, commit }, incrementBy) {
-      if (state.user) {
-        commit("INCREMENT_COUNT", incrementBy);
-      }
+    createEvent({ commit }, event) {
+      return EventService.postEvent(event).then(() => {
+        commit("ADD_EVENT", event);
+      });
     }
   }
 });
