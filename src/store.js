@@ -70,13 +70,14 @@ export default new Vuex.Store({
         });
     },
     fetchEvent({ commit, getters }, id) {
+      //try to get it from state
       let event = getters.getEventById(id);
-console.log(id);
-console.log(event);
+
       if (event) {
         console.log("getting event from state");
         commit("SET_EVENT", event);
       } else {
+        //otherwise get it from the api
         EventService.getEvent(id)
           .then(response => {
             console.log("getting event from api");

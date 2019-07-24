@@ -8,7 +8,7 @@
         ><< Prev</router-link
       >
       <router-link v-if="listEventLinks.next" class="l-margin-10" :to="{ name: 'event-list', query: { page: page + 1 } }"
-        >Next>></router-link
+        >Next >></router-link
       >
     </div>
   </div>
@@ -16,32 +16,25 @@
 
 <script>
 import EventCard from "@/components/EventCard.vue";
-import { mapState } from "vuex";
+import EventService from "@/services/EventService.js";
 
 export default {
   components: {
     EventCard
   },
   data() {
-    return {};
-  },
-  computed: {
-    page() {
-      return parseInt(this.$route.query.page) || 1;
-    },
-    ...mapState(["events", "listEventLinks"])
+    return {
+      events: []
+    };
   },
   created() {
-    this.$store.dispatch("fetchEvents", {
-      perPage: 3,
-      page: this.page
-    });
+    EventService.getEvents('')
+      .then(response => {
+        this.events = response.data;
+      })
+      .catch(error => {
+        console.log("There was an error:", error.response);
+      });
   }
 };
 </script>
-
-<style scoped>
-.l-margin-10 {
-  margin-left: 10px;
-}
-</style>
