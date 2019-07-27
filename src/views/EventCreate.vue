@@ -66,11 +66,11 @@ export default {
   },
   methods: {
     createFreshEvent() {
-      const user = this.$store.state.user;
+      const user = this.$store.state.userModule.user;
       const id = Math.floor(Math.random() * 10000000)
 
       return {
-        id:id,
+        id: id,
         category: "",
         organizer: user,
         title: "",
@@ -83,7 +83,7 @@ export default {
     },
     createEvent() {
       this.$store
-        .dispatch("createEvent", this.event)
+        .dispatch("eventModule/createEvent", this.event)
         .then(() => {
           this.$router.push({
             name: "event-show",

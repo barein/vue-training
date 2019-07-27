@@ -35,10 +35,12 @@ export default {
     };
   },
   computed: {
-    ...mapState(["event"])
+    ...mapState({
+      event: state => state.eventModule.event
+    })
   },
   created() {
-    this.$store.dispatch("fetchEvent", this.id);
+    this.$store.dispatch("eventModule/fetchEvent", this.id);
   }
 };
 </script>
