@@ -3,6 +3,7 @@ import Router from "vue-router";
 import EventList from "./views/EventList";
 import EventCreate from "./views/EventCreate";
 import EventShow from "./views/EventShow";
+import NotificationPanel from "./views/NotificationPanel";
 
 Vue.use(Router);
 
@@ -25,6 +26,11 @@ export default new Router({
       name: "event-show",
       component: EventShow,
       props: true
+    },
+    {
+      path: "/notification",
+      name: "notification-list",
+      component: NotificationPanel
     }
   ]
 });
