@@ -67,7 +67,7 @@ export default {
   methods: {
     createFreshEvent() {
       const user = this.$store.state.userModule.user;
-      const id = Math.floor(Math.random() * 10000000)
+      const id = Math.floor(Math.random() * 10000000);
 
       return {
         id: id,
