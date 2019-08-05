@@ -85,7 +85,7 @@ export const actions = {
       commit("SET_EVENT", event);
     } else {
       //otherwise get it from the api
-      return EventService.getEvent(id)
+      EventService.getEvent(id)
         .then(response => {
           console.log("getting event from api");
           commit("SET_EVENT", response.data);
