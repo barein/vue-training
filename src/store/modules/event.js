@@ -83,12 +83,16 @@ export const actions = {
     if (event) {
       console.log("getting event from state");
       commit("SET_EVENT", event);
+
+      return event;
     } else {
       //otherwise get it from the api
-      EventService.getEvent(id)
+      return EventService.getEvent(id)
         .then(response => {
           console.log("getting event from api");
           commit("SET_EVENT", response.data);
+
+          return response.data;
         })
         .catch(error => {
           let notification = {
