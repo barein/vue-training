@@ -84,26 +84,16 @@ export const actions = {
     if (event) {
       console.log("getting event from state");
       commit("SET_EVENT", event);
-console.log("commited");
-console.log(event);
-      return event;
+
+      return event; //useful to get event in .then() afterwhile
     } else {
       //otherwise get it from the api
-      return EventService.getEvent(id)
-        .then(response => {
-          console.log("getting event from api");
-          commit("SET_EVENT", response.data);
+      return EventService.getEvent(id).then(response => {
+        console.log("getting event from api");
+        commit("SET_EVENT", response.data);
 
-          return response.data;
-        })
-        .catch(error => {
-          let notification = {
-            type: "error",
-            message: "There was a problem fetching event: " + error.message
-          };
-
-          dispatch("notificationModule/add", notification, { root: true });
-        });
+        return response.data;
+      });
     }
   }
 };
