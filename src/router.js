@@ -16,7 +16,8 @@ const router = new Router({
       path: "/",
       name: "event-list",
       component: EventList,
-      alias: "/home"
+      alias: "/home",
+      props: true
     },
     {
       path: "/event/create",
@@ -29,10 +30,14 @@ const router = new Router({
       component: EventShow,
       props: true,
       beforeEnter(routeTo, routeFrom, next) {
-        store.dispatch("eventModule/fetchEvent", routeTo.params.id).then(event => {
-          routeTo.params.event = event;
-          next();
-        });
+        console.log("before enter route guard");
+        store
+          .dispatch("eventModule/fetchEvent", routeTo.params.id)
+          .then(event => {
+            routeTo.params.event = event;
+
+            next();
+          });
       }
     },
     {
@@ -44,13 +49,14 @@ const router = new Router({
 });
 
 router.beforeEach((routeTo, routeFrom, next) => {
+  console.log("before each route guard");
   NProgress.start();
   next();
 });
 
-router.afterEach((routeTo, routeFrom, next) => {
+router.afterEach((routeTo, routeFrom) => {
+  console.log("after each route guard");
   NProgress.done();
-  next();
 });
 
 export default router;

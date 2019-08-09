@@ -8,7 +8,8 @@ export const state = {
   listEventLinks: {
     prev: false,
     next: false
-  }
+  },
+  perPage: 3
 };
 
 export const getters = {
@@ -57,14 +58,14 @@ export const actions = {
         throw error;
       });
   },
-  fetchEvents({ commit, dispatch }, { perPage, page }) {
-    EventService.getEvents(perPage, page)
+  fetchEvents({ commit, dispatch, state }, { page }) {
+    return EventService.getEvents(state.perPage, page)
       .then(response => {
         commit("SET_EVENTS", response.data);
 
-        let test = response.headers["link"];
-        let prev = -1 !== test.indexOf("prev");
-        let next = -1 !== test.indexOf("next");
+        let link = response.headers["link"];
+        let prev = -1 !== link.indexOf("prev");
+        let next = -1 !== link.indexOf("next");
 
         commit("SET_PAGINATION_LINKS", { prev, next });
       })
@@ -83,7 +84,8 @@ export const actions = {
     if (event) {
       console.log("getting event from state");
       commit("SET_EVENT", event);
-
+console.log("commited");
+console.log(event);
       return event;
     } else {
       //otherwise get it from the api

@@ -4,10 +4,15 @@
     <EventCard v-for="event in events" :key="event.id" :event="event" />
 
     <div>
-      <router-link v-if="listEventLinks.prev" :to="{ name: 'event-list', query: { page: page - 1 } }"
+      <router-link
+        v-if="listEventLinks.prev"
+        :to="{ name: 'event-list', query: { page: page - 1 } }"
         ><< Prev</router-link
       >
-      <router-link v-if="listEventLinks.next" class="l-margin-10" :to="{ name: 'event-list', query: { page: page + 1 } }"
+      <router-link
+        v-if="listEventLinks.next"
+        class="l-margin-10"
+        :to="{ name: 'event-list', query: { page: page + 1 } }"
         >Next>></router-link
       >
     </div>
@@ -17,29 +22,43 @@
 <script>
 import EventCard from "@/components/EventCard.vue";
 import { mapState } from "vuex";
+import store from "@/store/store";
+
+function getPageEvents(routeTo, next) {
+  const currentPage = parseInt(routeTo.query.page || 1);
+  store
+    .dispatch("eventModule/fetchEvents", {
+      page: currentPage
+    })
+    .then(() => {
+      routeTo.params.page = currentPage;
+
+      next();
+    });
+}
 
 export default {
+  props: {
+    page: {
+      type: Number,
+      required: true
+    }
+  },
   components: {
     EventCard
   },
-  data() {
-    return {};
-  },
   computed: {
-    page() {
-      return parseInt(this.$route.query.page) || 1;
-    },
     ...mapState({
       events: state => state.eventModule.events,
       listEventLinks: state => state.eventModule.listEventLinks,
       user: state => state.userModule.user
     })
   },
-  created() {
-    this.$store.dispatch("eventModule/fetchEvents", {
-      perPage: 3,
-      page: this.page
-    });
+  beforeRouteEnter(routeTo, routeFrom, next) {
+    getPageEvents(routeTo, next);
+  },
+  beforeRouteUpdate(routeTo, routeFrom, next) {
+    getPageEvents(routeTo, next);
   }
 };
 </script>
