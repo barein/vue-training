@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <NavBar />
-    <router-view :key="$route.fullPath"/>
+    <router-view :key="$route.fullPath" />
   </div>
 </template>
 
@@ -238,5 +238,9 @@ select:focus::ms-value {
 }
 select::ms-expand {
   opacity: 0;
+}
+
+.field {
+  margin-bottom: 10px;
 }
 </style>
