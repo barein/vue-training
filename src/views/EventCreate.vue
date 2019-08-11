@@ -1,9 +1,11 @@
 <template>
   <form @submit.prevent="createEvent">
-    <label>Select a category</label>
-    <select v-model="event.category">
-      <option v-for="cat in categories" :key="cat">{{ cat }}</option>
-    </select>
+    <BaseSelect
+      label="Select a category"
+      :options="categories"
+      v-model="event.category"
+    ></BaseSelect>
+
     <h3>Name & describe your event</h3>
     <BaseInput
       type="text"
@@ -13,29 +15,33 @@
     ></BaseInput>
 
     <BaseInput
-            type="text"
-            placeholder="Add a description"
-            label="Description"
-            v-model="event.description"
+      type="text"
+      placeholder="Add a description"
+      label="Description"
+      v-model="event.description"
     ></BaseInput>
+
     <h3>Where is your event?</h3>
     <BaseInput
-            type="text"
-            placeholder="Add a location"
-            label="Location"
-            v-model="event.location"
+      type="text"
+      placeholder="Add a location"
+      label="Location"
+      v-model="event.location"
     ></BaseInput>
+
     <h3>When is your event?</h3>
     <div class="field">
       <label>Date</label>
       <datepicker v-model="event.date" placeholder="Select a date" />
     </div>
+
     <div class="field">
       <label>Select a time</label>
       <select v-model="event.time">
         <option v-for="time in times" :key="time">{{ time }}</option>
       </select>
     </div>
+
     <input type="submit" class="button -fill-gradient" value="Submit" />
   </form>
 </template>

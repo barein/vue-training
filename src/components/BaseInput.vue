@@ -4,8 +4,6 @@
     <input
       :value="value"
       @input="updateValue"
-      type="text"
-      placeholder="Add an event title"
       v-bind="$attrs"
     />
   </div>
