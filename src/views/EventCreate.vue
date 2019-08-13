@@ -35,14 +35,13 @@
       <datepicker v-model="event.date" placeholder="Select a date" />
     </div>
 
-    <div class="field">
-      <label>Select a time</label>
-      <select v-model="event.time">
-        <option v-for="time in times" :key="time">{{ time }}</option>
-      </select>
-    </div>
+    <BaseSelect
+      label="Select a time"
+      :options="times"
+      v-model="event.time"
+    ></BaseSelect>
 
-    <input type="submit" class="button -fill-gradient" value="Submit" />
+    <BaseButton type="submit" buttonClass="-fill-gradient">Submit</BaseButton>
   </form>
 </template>
 

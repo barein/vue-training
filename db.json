@@ -338,6 +338,20 @@
       "date": "",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 8420583,
+      "category": "",
+      "organizer": {
+        "id": 1,
+        "name": "Nicolas"
+      },
+      "title": "",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
