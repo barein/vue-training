@@ -243,4 +243,12 @@ select::ms-expand {
 .field {
   margin-bottom: 10px;
 }
+
+.error {
+  background-color: red;
+}
+
+.errorMessage {
+  color: red;
+}
 </style>

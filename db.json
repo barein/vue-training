@@ -352,6 +352,20 @@
       "date": "",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 8373444,
+      "category": "housing",
+      "organizer": {
+        "id": 1,
+        "name": "Nicolas"
+      },
+      "title": "zf",
+      "description": "zdf",
+      "location": "piuihzvcb",
+      "date": "2019-08-07T19:39:00.000Z",
+      "time": "19:00",
+      "attendees": []
     }
   ]
 }
