@@ -6,9 +6,10 @@ import upperFirst from "lodash/upperFirst";
 import camelCase from "lodash/camelCase";
 import "nprogress/nprogress.css";
 import Vuelidate from "vuelidate";
+import DateFilter from "@/filters/date.js";
 
 Vue.use(Vuelidate);
-
+Vue.filter("date", DateFilter);
 
 //Webpack config to set components named BaseXxx as available everywhere
 const requireComponent = require.context(
